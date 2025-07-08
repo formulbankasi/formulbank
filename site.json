@@ -1,0 +1,45 @@
+{
+    "siteSettings": {
+        "title": "Formül Bankası",
+        "description": "Akılda kalıcı formüller ve örnekler",
+        "logo": "",
+        "favicon": ""
+    },
+    "categories": [
+        {
+            "id": "matematik",
+            "name": "Matematik",
+            "icon": "fas fa-calculator",
+            "color": "math",
+            "subcategories": ["Trigonometri", "Fonksiyonlar", "Türev", "İntegral", "Logaritma", "Limit"]
+        },
+        {
+            "id": "geometri",
+            "name": "Geometri",
+            "icon": "fas fa-shapes",
+            "color": "geometry",
+            "subcategories": ["Üçgenler", "Çember", "Katı Cisimler", "Vektörler", "Analitik Geometri"]
+        },
+        {
+            "id": "fizik",
+            "name": "Fizik",
+            "icon": "fas fa-atom",
+            "color": "physics",
+            "subcategories": ["Mekanik", "Elektrik", "Manyetizma", "Optik", "Termodinamik"]
+        },
+        {
+            "id": "kimya",
+            "name": "Kimya",
+            "icon": "fas fa-flask",
+            "color": "chemistry",
+            "subcategories": ["Organik Kimya", "İnorganik Kimya", "Kimyasal Tepkimeler", "Mol Kavramı", "Asitler ve Bazlar"]
+        },
+        {
+            "id": "biyoloji",
+            "name": "Biyoloji",
+            "icon": "fas fa-dna",
+            "color": "biology",
+            "subcategories": ["Hücre", "Genetik", "Ekosistem", "İnsan Fizyolojisi", "Canlıların Sınıflandırılması"]
+        }
+    ]
+}

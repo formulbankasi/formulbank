@@ -1,0 +1,42 @@
+[
+    {
+        "id": "formula1",
+        "title": "Trigonometrik Özdeşlikler",
+        "content": "sin²θ + cos²θ = 1",
+        "example": "Örnek: sin30° = 0.5, cos30° = √3/2 ≈ 0.866 olduğundan,<br>(0.5)² + (0.866)² = 0.25 + 0.75 = 1",
+        "category": "matematik",
+        "subcategory": "Trigonometri"
+    },
+    {
+        "id": "formula2",
+        "title": "Newton'un Hareket Yasası",
+        "content": "F = m · a",
+        "example": "Örnek: 2 kg kütleli bir cisme 10 N kuvvet uygulandığında,<br>a = F/m = 10/2 = 5 m/s² ivme kazanır.",
+        "category": "fizik",
+        "subcategory": "Mekanik"
+    },
+    {
+        "id": "formula3",
+        "title": "İdeal Gaz Denklemi",
+        "content": "P · V = n · R · T",
+        "example": "Örnek: 1 mol gaz, 273K sıcaklıkta ve 1 atm basınçta,<br>V = (nRT)/P = (1 × 0.082 × 273)/1 = 22.4 L",
+        "category": "kimya",
+        "subcategory": "Kimyasal Tepkimeler"
+    },
+    {
+        "id": "formula4",
+        "title": "Pisagor Teoremi",
+        "content": "a² + b² = c²",
+        "example": "Örnek: Bir dik üçgende dik kenarlar 3cm ve 4cm ise,<br>hipotenüs = √(3² + 4²) = √(9+16) = √25 = 5cm",
+        "category": "geometri",
+        "subcategory": "Üçgenler"
+    },
+    {
+        "id": "formula5",
+        "title": "Logaritma Özdeşliği",
+        "content": "logₐ(b·c) = logₐb + logₐc",
+        "example": "Örnek: log₂(4·8) = log₂4 + log₂8 = 2 + 3 = 5",
+        "category": "matematik",
+        "subcategory": "Logaritma"
+    }
+]
