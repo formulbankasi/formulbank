@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formül Bankası</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Slab:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-theme">
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <div class="logo">
+                <i class="fas fa-square-root-variable"></i>
+            </div>
+            <div class="logo-text">
+                <h1>Formül Bankası</h1>
+                <p>Akılda kalıcı formüller ve örnekler</p>
+            </div>
+        </div>
+        
+        <div class="search-container">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" id="search-input" placeholder="Formül ara...">
+            <div class="search-results" id="search-results">
+                <!-- Search results will appear here -->
+            </div>
+        </div>
+        
+        <div class="header-controls">
+            <button class="theme-toggle" id="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="btn" id="study-mode-btn">
+                <i class="fas fa-graduation-cap"></i> Çalışma Modu
+            </button>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <div class="container" id="main-container">
+        <h2 class="section-title">Ders Kategorileri</h2>
+        
+        <div class="categories" id="categories-container">
+            <!-- Categories will be populated by JavaScript -->
+        </div>
+        
+        <h2 class="section-title">Popüler Formüller</h2>
+        
+        <div class="formulas-container" id="formulas-container">
+            <!-- Formulas will be populated by JavaScript -->
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>Formül Bankası © 2023 - Tüm hakları saklıdır</p>
+            <div class="footer-links">
+                <a href="#">Hakkımızda</a>
+                <a href="#">İletişim</a>
+                <a href="#">Gizlilik Politikası</a>
+                <a href="#" id="admin-link" class="admin-link">Yönetici Paneli</a>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Topic View -->
+    <div class="topic-view" id="topic-view">
+        <div class="topic-header">
+            <button class="btn" id="back-to-main">
+                <i class="fas fa-arrow-left"></i> Geri Dön
+            </button>
+            <h2 id="topic-header-title">Matematik - Trigonometri</h2>
+            <button class="btn" id="start-pomodoro-from-topic">
+                <i class="fas fa-graduation-cap"></i> Çalışma Modu Başlat
+            </button>
+        </div>
+        
+        <div class="topic-content">
+            <div class="subcategory-sidebar">
+                <h3 id="sidebar-category-title">Matematik</h3>
+                <ul class="subcategory-list" id="subcategory-list">
+                    <!-- Subcategories will be populated here -->
+                </ul>
+            </div>
+            <div class="topic-formulas" id="topic-formulas">
+                <div class="current-topic">
+                    <h2 id="topic-title">Trigonometri Formülleri</h2>
+                </div>
+                <!-- Formulas will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- Study Mode Modal -->
+    <div class="modal" id="study-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Çalışma Modu</h2>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="lesson-select">Ders Seçin</label>
+                    <select id="lesson-select">
+                        <option value="">-- Ders Seçin --</option>
+                        <!-- Options will be populated by JavaScript -->
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="topic-select">Konu Seçin</label>
+                    <select id="topic-select">
+                        <option value="">-- Önce ders seçin --</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="timer-input">Çalışma Süresi (dakika)</label>
+                    <input type="number" id="timer-input" min="1" max="120" value="40">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancel-study">İptal</button>
+                <button class="btn" id="start-study">Başlat</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Study Mode Screen -->
+    <div class="study-screen" id="study-screen">
+        <div class="study-header">
+            <div class="study-topic">
+                <h2 id="current-topic">Matematik - Trigonometri</h2>
+            </div>
+            <button class="btn" id="exit-study">
+                <i class="fas fa-times"></i> Çalışmayı Bitir
+            </button>
+        </div>
+        
+        <div class="study-content">
+            <div class="pomodoro-timer">
+                <h3>Pomodoro Sayacı</h3>
+                <div class="timer-display" id="timer-display">40:00</div>
+                <div class="timer-controls">
+                    <button class="timer-btn" id="pause-timer">
+                        <i class="fas fa-pause"></i> Duraklat
+                    </button>
+                    <button class="timer-btn" id="reset-timer">
+                        <i class="fas fa-redo"></i> Sıfırla
+                    </button>
+                </div>
+                <div class="timer-info">
+                    <p>Pomodoro tekniği, 25-30 dakika çalışma + 5 dakika mola şeklinde uygulanır. Bu teknikle daha verimli çalışabilirsiniz.</p>
+                </div>
+            </div>
+            
+            <div class="study-formulas" id="study-formulas">
+                <div class="current-topic">
+                    <h2 id="study-topic-title">Trigonometri Formülleri</h2>
+                </div>
+                <!-- Formulas will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- Admin Panel -->
+    <div class="admin-panel" id="admin-panel">
+        <div class="admin-header">
+            <h2>Admin Paneli</h2>
+            <button class="btn" id="exit-admin">
+                <i class="fas fa-times"></i> Çıkış Yap
+            </button>
+        </div>
+        
+        <div class="admin-content">
+            <div class="admin-sidebar">
+                <ul>
+                    <li class="active" data-section="site-settings"><i class="fas fa-cog"></i> Site Ayarları</li>
+                    <li data-section="add-formula"><i class="fas fa-plus-circle"></i> Formül Ekle</li>
+                    <li data-section="bulk-import"><i class="fas fa-file-import"></i> Toplu Formül Ekle</li>
+                    <li data-section="manage-formulas"><i class="fas fa-edit"></i> Formülleri Yönet</li>
+                    <li data-section="add-category"><i class="fas fa-folder-plus"></i> Kategori Ekle</li>
+                    <li data-section="manage-categories"><i class="fas fa-folder-open"></i> Kategorileri Yönet</li>
+                </ul>
+            </div>
+            
+            <div class="admin-main">
+                <!-- Site Settings -->
+                <div class="admin-section active" id="site-settings">
+                    <div class="admin-card">
+                        <h3>Site Ayarları</h3>
+                        <div class="admin-form-group">
+                            <label for="site-title">Site Başlığı</label>
+                            <input type="text" id="site-title" value="Formül Bankası">
+                        </div>
+                        <div class="admin-form-group">
+                            <label for="site-description">Site Açıklaması</label>
+                            <input type="text" id="site-description" value="Akılda kalıcı formüller ve örnekler">
+                        </div>
+                        <div class="admin-form-group">
+                            <label for="site-logo">Logo</label>
+                            <input type="text" id="site-logo" placeholder="Logo URL'si" value="https://example.com/logo.png">
+                        </div>
+                        <div class="admin-actions">
+                            <button class="btn" id="save-settings">Ayarları Kaydet</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Add Formula -->
+                <div class="admin-section" id="add-formula">
+                    <div class="admin-card">
+                        <h3>Yeni Formül Ekle</h3>
+                        <div class="admin-form-group">
+                            <label for="formula-title">Formül Başlığı</label>
+                            <input type="text" id="formula-title" placeholder="Formül başlığını girin">
+                        </div>
+                        <div class="admin-form-group">
+                            <label for="formula-content">Formül İçeriği</label>
+                            <textarea id="formula-content" placeholder="Formülü girin"></textarea>
+                        </div>
+                        <div class="admin-form-group">
+                            <label for="formula-example">Örnek</label>
+                            <textarea id="formula-example" placeholder="Formül örneğini girin"></textarea>
+                        </div>
+                        <div class="admin-form-group">
+                            <label for="formula-category">Kategori</label>
+                            <select id="formula-category">
+                                <!-- Options will be populated by JavaScript -->
+                            </select>
+                        </div>
+                        <div class="admin-form-group">
+                            <label for="formula-subcategory">Alt Kategori</label>
+                            <select id="formula-subcategory">
+                                <option value="">-- Önce kategori seçin --</option>
+                            </select>
+                        </div>
+                        <div class="admin-actions">
+                            <button class="btn" id="save-formula">Formülü Kaydet</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bulk Import -->
+                <div class="admin-section" id="bulk-import">
+                    <div class="admin-card">
+                        <h3>Toplu Formül Ekle</h3>
+                        <div class="admin-form-group">
+                            <label for="bulk-import-text">Formül Verisi (JSON formatında)</label>
+                            <textarea id="bulk-import-text" placeholder='[
+  {
+    "title": "Formül Başlığı",
+    "content": "Formül İçeriği",
+    "example": "Formül Örneği",
+    "category": "kategori-id",
+    "subcategory": "Alt Kategori Adı"
+  },
+  ...
+]' rows="15"></textarea>
+                        </div>
+                        <div class="admin-actions">
+                            <button class="btn" id="import-formulas">Formülleri İçe Aktar</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Manage Formulas -->
+                <div class="admin-section" id="manage-formulas">
+                    <div class="admin-card">
+                        <h3>Formülleri Yönet</h3>
+                        <div id="formulas-list">
+                            <!-- Formulas list will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Add Category -->
+                <div class="admin-section" id="add-category">
+                    <div class="admin-card">
+                        <h3>Yeni Kategori Ekle</h3>
+                        <div class="admin-form-group">
+                            <label for="category-name">Kategori Adı</label>
+                            <input type="text" id="category-name" placeholder="Kategori adını girin">
+                        </div>
+                        <div class="admin-form-group">
+                            <label for="category-icon">Kategori İkonu (Font Awesome)</label>
+                            <input type="text" id="category-icon" placeholder="fas fa-icon">
+                        </div>
+                        <div class="admin-form-group">
+                            <label for="category-color">Renk</label>
+                            <select id="category-color">
+                                <option value="math">Matematik (Mavi)</option>
+                                <option value="geometry">Geometri (Pembe)</option>
+                                <option value="physics">Fizik (Açık Mavi)</option>
+                                <option value="chemistry">Kimya (Mor)</option>
+                                <option value="biology">Biyoloji (Yeşil)</option>
+                            </select>
+                        </div>
+                        <div class="admin-actions">
+                            <button class="btn" id="save-category">Kategoriyi Kaydet</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Manage Categories -->
+                <div class="admin-section" id="manage-categories">
+                    <div class="admin-card">
+                        <h3>Kategorileri Yönet</h3>
+                        <div id="categories-list">
+                            <!-- Categories list will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Admin Login Modal -->
+    <div class="login-modal" id="admin-login-modal">
+        <div class="login-content">
+            <div class="login-header">
+                <h2>Yönetici Girişi</h2>
+            </div>
+            <div class="login-body">
+                <div class="form-group">
+                    <label for="admin-username">Kullanıcı Adı</label>
+                    <input type="text" id="admin-username" placeholder="Kullanıcı adınız">
+                </div>
+                <div class="form-group">
+                    <label for="admin-password">Şifre</label>
+                    <input type="password" id="admin-password" placeholder="Şifreniz">
+                </div>
+            </div>
+            <div class="login-footer">
+                <button class="btn btn-secondary" id="cancel-admin-login">İptal</button>
+                <button class="btn" id="admin-login-btn">Giriş Yap</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
